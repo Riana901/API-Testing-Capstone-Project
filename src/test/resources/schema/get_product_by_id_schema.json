@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/GetProductByID",
+  "definitions": {
+    "GetProductByID": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "GetProductByID"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "integer"
+        },
+        "productType": {
+          "$ref": "#/definitions/ProductType"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ingredients": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "productDetail": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "Id",
+        "image",
+        "ingredients",
+        "name",
+        "productDetail",
+        "productType"
+      ],
+      "title": "Results"
+    },
+    "ProductType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "typeDescription": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "typeDescription",
+        "typeName"
+      ],
+      "title": "ProductType"
+    }
+  }
+}

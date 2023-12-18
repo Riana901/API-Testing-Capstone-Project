@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/GetAllProduct",
+  "definitions": {
+    "GetAllProduct": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "total": {
+          "type": "integer"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results",
+        "total"
+      ],
+      "title": "GetAllProduct"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "integer"
+        },
+        "productType": {
+          "$ref": "#/definitions/ProductType"
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "ingredients": {
+          "$ref": "#/definitions/Ingredients"
+        },
+        "image": {
+          "type": "string",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        },
+        "productDetail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductDetail"
+          }
+        }
+      },
+      "required": [
+        "Id",
+        "image",
+        "ingredients",
+        "name",
+        "productDetail",
+        "productType"
+      ],
+      "title": "Result"
+    },
+    "ProductDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "productId": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "totalStock": {
+          "type": "integer"
+        },
+        "size": {
+          "$ref": "#/definitions/Size"
+        }
+      },
+      "required": [
+        "id",
+        "price",
+        "productId",
+        "size",
+        "totalStock"
+      ],
+      "title": "ProductDetail"
+    },
+    "ProductType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "typeName": {
+          "$ref": "#/definitions/TypeName"
+        },
+        "typeDescription": {
+          "$ref": "#/definitions/TypeDescription"
+        }
+      },
+      "required": [
+        "id",
+        "typeDescription",
+        "typeName"
+      ],
+      "title": "ProductType"
+    },
+    "Ingredients": {
+      "type": "string",
+      "enum": [
+        "Es",
+        "nasi, bawang",
+        "biji kopi",
+        "tes"
+      ],
+      "title": "Ingredients"
+    },
+    "Name": {
+      "type": "string",
+      "enum": [
+        "Es Serut",
+        "nasi gorang update",
+        "kopi",
+        "fix ni"
+      ],
+      "title": "Name"
+    },
+    "Size": {
+      "type": "string",
+      "enum": [
+        "NORMAL"
+      ],
+      "title": "Size"
+    },
+    "TypeDescription": {
+      "type": "string",
+      "enum": [
+        "mata air beta",
+        "tes juga ubah"
+      ],
+      "title": "TypeDescription"
+    },
+    "TypeName": {
+      "type": "string",
+      "enum": [
+        "minuman",
+        "tes ubah"
+      ],
+      "title": "TypeName"
+    }
+  }
+}

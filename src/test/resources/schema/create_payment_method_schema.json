@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/CreatePaymentMethod",
+  "definitions": {
+    "CreatePaymentMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "$ref": "#/definitions/Results"
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "CreatePaymentMethod"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Results": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "paymentTypeId": {
+          "type": "integer"
+        },
+        "paymentType": {
+          "$ref": "#/definitions/PaymentType"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "paymentType",
+        "paymentTypeId"
+      ],
+      "title": "Results"
+    },
+    "PaymentType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "typeName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "typeName"
+      ],
+      "title": "PaymentType"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/CreateProductByName",
+  "definitions": {
+    "CreateProductByName": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/Meta"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Result"
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "results"
+      ],
+      "title": "CreateProductByName"
+    },
+    "Meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "success"
+      ],
+      "title": "Meta"
+    },
+    "Result": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "productType": {
+          "$ref": "#/definitions/ProductType"
+        },
+        "name": {
+          "type": "string"
+        },
+        "ingredients": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri",
+          "qt-uri-protocols": [
+            "https"
+          ],
+          "qt-uri-extensions": [
+            ".png"
+          ]
+        },
+        "productDetail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductDetail"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "image",
+        "ingredients",
+        "name",
+        "productDetail",
+        "productType"
+      ],
+      "title": "Result"
+    },
+    "ProductDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "productId": {
+          "type": "integer"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "totalStock": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "price",
+        "productId",
+        "size",
+        "totalStock"
+      ],
+      "title": "ProductDetail"
+    },
+    "ProductType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "typeName": {
+          "type": "string"
+        },
+        "typeDescription": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "typeDescription",
+        "typeName"
+      ],
+      "title": "ProductType"
+    }
+  }
+}
